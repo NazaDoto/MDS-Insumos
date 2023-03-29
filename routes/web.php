@@ -1,18 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InsumoController;
+use App\Http\Controllers\HojaDeCargoController;
+use App\Http\Controllers\InformeController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('plantilla');
-});
+
+Route::get('hojadecargo', [HojaDeCargoController::class, 'index'])->name('hojadecargo.index');
+
+Route::get('insumos', [InsumoController::class, 'index'])->name('insumos.index');
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
+Route::get('informes', [InformeController::class, 'index'])->name('informes.index');

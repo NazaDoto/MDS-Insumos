@@ -1,0 +1,40 @@
+body{
+    font-family:Arial, Helvetica, sans-serif !important;
+    background-color:rgb(211, 226, 249) !important;
+}
+.m-auto{
+    margin: auto;
+}
+.nav-link{
+    font-weight: bold !important;
+    font-size: large !important;
+}
+.navbar-text{
+    display: inline-block !important;
+    text-align: right !important;
+    color: grey;
+    font-style: italic;
+}
+.link-activo{
+    color:white !important;
+}
+
+.btn-opcion{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size: larger;
+    height: 100px;
+    width: 250px;
+    margin: 20px auto auto auto;
+}
+.btn-opcion:hover{
+    background-color: darkgreen;
+    cursor: pointer;
+}
