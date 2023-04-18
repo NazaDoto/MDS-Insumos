@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class InformeController extends Controller
+use App\Models\Insumo;
+ 
+class IngresosController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('informes');
+        return view('ingresos');
     }
 
     /**
@@ -27,7 +28,10 @@ class InformeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insumo = Insumo::findOrFail($id);
+        $insumo->fill($request->all());
+        $insumo->save();
+        return redirect()->route('insumos.index');
     }
 
     /**
