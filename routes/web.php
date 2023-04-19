@@ -19,12 +19,12 @@ Route::delete('/insumos/{id}', [InsumoController::class, 'destroy'])->name('insu
 
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [InsumoController::class, 'index'])->name('home.index');
 
-Route::get('informes', [InformesController::class, 'index'])->name('informes.index');
+Route::get('informes', [InsumosInformeController::class, 'index'])->name('informes.index');
 
 Route::get('/insumos/informes', [InsumosInformeController::class, 'index'])->name('insumosInformes.index');
 Route::get('/insumos/informes/pdf/{id}',[InsumosInformeController::class,'createPDF'])->name('insumosInformes.createPDF');
 
-Route::get('ingresos', [IngresosController::class, 'index'])->name('ingresos.index');
-Route::patch('/ingresos', [IngresosController::class, 'update'])->name('ingresos.update');
+Route::get('stock', [IngresosController::class, 'index'])->name('ingresos.index');
+Route::patch('/stock', [IngresosController::class, 'update'])->name('ingresos.update');

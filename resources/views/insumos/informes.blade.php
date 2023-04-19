@@ -3,9 +3,7 @@
 MDS - Informes
 @endsection
 
-@section('textoNavbar')
-Informes
-@endsection
+
 @section('cuerpo')
 <div class="container mt-4">
     <div class="form-group">

@@ -1,9 +1,6 @@
 @extends('plantilla')
 @section('titulo')
-MDS - Ingresos
-@endsection
-@section('textoNavbar')
-Ingresos
+MDS - Stock
 @endsection
 @section('cuerpo')
 <div class="container mt-4 va-m">
@@ -87,7 +84,7 @@ Ingresos
             <option value="PD219">PANTUM PD219</option>
         </select>
         <label class="texto-opciones" for="cantidad">Cantidad:</label>
-        <input class="opciones input-texto text-center" type="number" name="cantidad" id="cantidad" placeholder="Cantidad">
+        <input class="opciones input-texto text-center" type="number" name="cantidad" id="cantidad" placeholder="Cantidad" required>
         <button class="btn-submit" type="submit">Guardar</button>
         </form>
     </div>

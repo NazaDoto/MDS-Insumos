@@ -1,11 +1,9 @@
 @extends('plantilla')
 @section('titulo')
-MDS - Insumos
+MDS - Solicitud
 @endsection
 
-@section('textoNavbar')
-Insumos
-@endsection
+
 @section('cuerpo')
 @include('sweetalert::alert')
 @if (session('error'))

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('titulo')</title>    
+    <title>@yield('titulo')</title> 
+    <link rel="icon" type="image/x-icon" href="{{URL::asset('/recursos/logomds.ico')}}">   
     <link rel="stylesheet" href="{{ URL::asset('/css/app.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
@@ -22,13 +23,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('home.index') ? 'active':'' }}" aria-current="page" href="{{route('home.index')}}">Solicitudes</a>
+                <a class="nav-link {{ request()->routeIs('home.index') ? 'active':'' }}" aria-current="page" href="{{route('home.index')}}">Solicitud</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('informes.index') ? 'active':'' }}" aria-current="page" href="{{route('informes.index')}}">Informes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('ingresos.index') ? 'active':'' }}" aria-current="page" href="{{route('ingresos.index')}}">Ingresos</a>
+                <a class="nav-link {{ request()->routeIs('ingresos.index') ? 'active':'' }}" aria-current="page" href="{{route('ingresos.index')}}">Stock</a>
               </li>
             </ul>
           </div>
