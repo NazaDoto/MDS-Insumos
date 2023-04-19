@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Http\Request;
 use App\Models\Insumo;
+use App\Models\Stock;
 
 class InsumoController extends Controller
 {
@@ -23,9 +25,43 @@ class InsumoController extends Controller
 
     public function store(Request $request)
     {
-        $insumo = new Insumo($request->all());
-        $insumo->save();
-        return redirect()->route('insumos.index');
+        $stock = Stock::find(1);
+        switch ($request->insumo){
+            case 'Teclado':
+                if ($stock->teclados > 0){
+                    $stock->teclados -= 1;
+                    $stock->save();
+                    $insumo = new Insumo($request->all());
+                    $insumo->save();
+                    return redirect()->route('insumos.index');
+                } else{
+                    return redirect()->route('insumos.index')->with('error','No hay disponibilidad del insumo.');
+                }
+                break;
+                case 'Mouse':
+                    if ($stock->mouse > 0){
+                        $stock->mouse -= 1;
+                        $stock->save();
+                        $insumo = new Insumo($request->all());
+                        $insumo->save();
+                        return redirect()->route('insumos.index');
+                    } else{
+                        return redirect()->route('insumos.index')->with('error','No hay disponibilidad del insumo.');
+                    }
+                    break;
+                    case 'Tóner':
+
+                        if ($stock->{$request->toner} > 0){
+                            $stock->{$request->toner} -= 1;
+                            $stock->save();
+                            $insumo = new Insumo($request->all());
+                            $insumo->save();
+                            return redirect()->route('insumos.index');
+                        } else{
+                            return redirect()->route('insumos.index')->with('error','No hay disponibilidad del insumo.');
+                        }
+                        break;
+        }
     }
 
     public function edit($id)

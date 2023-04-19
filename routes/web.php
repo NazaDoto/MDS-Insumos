@@ -7,6 +7,7 @@ use App\Http\Controllers\HojaDeCargoController;
 use App\Http\Controllers\InsumosInformeController;
 use App\Http\Controllers\InformesController;
 use App\Http\Controllers\IngresosController;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -26,4 +27,4 @@ Route::get('/insumos/informes', [InsumosInformeController::class, 'index'])->nam
 Route::get('/insumos/informes/pdf/{id}',[InsumosInformeController::class,'createPDF'])->name('insumosInformes.createPDF');
 
 Route::get('ingresos', [IngresosController::class, 'index'])->name('ingresos.index');
-Route::post('/ingresos', [IngresosController::class, 'store'])->name('ingresos.store');
+Route::patch('/ingresos', [IngresosController::class, 'update'])->name('ingresos.update');

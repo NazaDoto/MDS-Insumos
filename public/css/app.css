@@ -141,6 +141,11 @@ body {
     cursor: pointer;
 }
 
+.btn-submit:disabled {
+    background-color: lightgray;
+    cursor: default;
+}
+
 .texto-opciones {
     display: block;
     font-size: large;
@@ -158,4 +163,22 @@ canvas {
     display: block;
     border-radius: 10px;
     margin: 10px auto 10px auto;
+}
+
+.deshabilitado {
+    background-color: lightgray;
+    color: gray;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-style: italic;
+}
+
+.alert-error {
+    background-color: red !important;
+    text-align: center;
+    padding: 10px;
+    font-size: large;
 }

@@ -7,11 +7,34 @@ var saveButton = document.getElementById('firmar');
 var cancelButton = document.getElementById('clear');
 
 saveButton.addEventListener('click', function(event) {
-    signaturePad.removeBlanks();
-    document.getElementById('firma').value = btoa(signaturePad.toDataURL('image/png'));
+    if (signaturePad.isEmpty()) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No puedes firmar en blanco!'
+        })
+    } else {
+
+        signaturePad.removeBlanks();
+        document.getElementById('firma').value = btoa(signaturePad.toDataURL('image/png'));
+        document.getElementById('direccion').classList.add("deshabilitado");
+        document.getElementById('area').classList.add("deshabilitado");
+        document.getElementById('insumo').classList.add("deshabilitado");
+        document.getElementById('toner').classList.add("deshabilitado");
+        document.getElementById('solicitante').readOnly = true;
+        document.getElementById('solicitante').classList.add("deshabilitado");
+        document.getElementById('btn-guardar').disabled = false;
+    }
 });
 cancelButton.addEventListener('click', function(event) {
     signaturePad.clear();
+    document.getElementById('direccion').classList.remove("deshabilitado");
+    document.getElementById('area').classList.remove("deshabilitado");
+    document.getElementById('insumo').classList.remove("deshabilitado");
+    document.getElementById('toner').classList.remove("deshabilitado");
+    document.getElementById('solicitante').readOnly = false;
+    document.getElementById('solicitante').classList.remove("deshabilitado");
+    document.getElementById('btn-guardar').disabled = true;
 });
 
 SignaturePad.prototype.removeBlanks = function() {

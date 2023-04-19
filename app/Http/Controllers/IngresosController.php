@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Insumo;
+use App\Models\Stock;
  
 class IngresosController extends Controller
 {
@@ -12,7 +12,8 @@ class IngresosController extends Controller
      */
     public function index()
     {
-        return view('ingresos');
+        $insumo = Stock::find(1);            
+            return view('ingresos', compact('insumo'));
     }
 
     /**
@@ -28,10 +29,7 @@ class IngresosController extends Controller
      */
     public function store(Request $request)
     {
-        $insumo = Insumo::findOrFail($id);
-        $insumo->fill($request->all());
-        $insumo->save();
-        return redirect()->route('insumos.index');
+       
     }
 
     /**
@@ -53,9 +51,24 @@ class IngresosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        $id = 1;
+        $insumo = Stock::find($id);
+        switch ($request->insumo){
+            case 'Teclado':
+                $insumo->teclados += $request->cantidad;
+                break;
+                case 'Mouse':
+                    $insumo->mouse += $request->cantidad;
+                    break;
+                    case 'Tóner':
+                        $toner = $request->toner;
+                        $insumo->$toner += $request->cantidad;
+                        break;
+        }
+        $insumo->save();
+        return redirect()->route('ingresos.index');
     }
 
     /**

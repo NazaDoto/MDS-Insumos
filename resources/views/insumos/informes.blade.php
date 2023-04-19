@@ -11,9 +11,9 @@ Informes
     <div class="form-group">
         <input type="text" class="form-control" id="buscar" placeholder="Buscar">
     </div>
-    <div class="divTable">
+    <div class="divTable text-center">
 
-        <table class="table table-dark mt-2">
+        <table class="table table-dark mt-2 table-striped">
             <thead>
                 <tr>
                     <th>ID</th>

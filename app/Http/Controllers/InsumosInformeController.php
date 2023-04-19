@@ -16,7 +16,7 @@ class InsumosInformeController extends Controller
     {
         if($request->bool == null){
             $insumos = Insumo::orderBy('id', 'DESC')->get();            
-            return view('/insumos/informes', compact('insumos')); ;
+            return view('/insumos/informes', compact('insumos'));
             
         } else{
 
